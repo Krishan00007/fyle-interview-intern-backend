@@ -75,3 +75,8 @@ class Assignment(db.Model):
     @classmethod
     def get_assignments_by_student(cls, student_id):
         return cls.filter(cls.student_id == student_id).all()
+
+    # create a class method to get list of submiited assignments to a teacher
+    @classmethod
+    def get_assignments_submitted_to_teacher(cls, teacher_id):
+        return cls.filter(cls.teacher_id == teacher_id).all()

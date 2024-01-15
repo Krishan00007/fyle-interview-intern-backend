@@ -1,3 +1,4 @@
+from flask import Flask
 from flask import jsonify
 from marshmallow.exceptions import ValidationError
 from core import app
@@ -7,6 +8,8 @@ from core.libs.exceptions import FyleError
 from werkzeug.exceptions import HTTPException
 
 from sqlalchemy.exc import IntegrityError
+
+app = Flask(__name__)
 
 app.register_blueprint(student_assignments_resources, url_prefix='/student')
 
