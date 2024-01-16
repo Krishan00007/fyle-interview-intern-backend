@@ -8,7 +8,7 @@ from .schema import AssignmentSchema, AssignmentGradeSchema
 teacher_assignments_resources = Blueprint('teacher_assignments_resources', __name__)
 
 # get a list of assignments submitted to a teacher
-@teacher_assignments_resources.route('/teacher/assignments', methods=['GET'], strict_slashes=False)
+@teacher_assignments_resources.route('/assignments', methods=['GET'], strict_slashes=False)
 @decorators.auth_principal
 def list_assignments(p):
     assignment_submitted = Assignment.get_assignments_submitted_to_teacher(p.teacher_id)
@@ -16,7 +16,7 @@ def list_assignments(p):
     return APIResponse.respond(data=assignment_submitted_dump)
 
 # Grade a assignment submitted by student
-@teacher_assignments_resources.route('/teacher/assignments/grade', method=['POST'], strict_slashes=False)
+@teacher_assignments_resources.route('/assignments/grade', methods=['POST'], strict_slashes=False)
 @decorators.accept_payload
 @decorators.auth_principal
 def grade_assignment(p, incoming_payload):
