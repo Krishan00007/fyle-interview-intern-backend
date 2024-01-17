@@ -20,7 +20,7 @@ def list_assignments(p):
 @principal_assignment_resources.route('/teachers', methods=['GET'], strict_slashes=False)
 @decorators.authenticate_principal
 def list_teachers(p):
-    principal_teacher = Teacher.get_teachers_by_principal(p)
+    principal_teacher = Teacher.get_teachers_by_principal(p.principal_id)
     principal_teacher_dump = TeacherSchema().dump(principal_teacher, many=True)
     return APIResponse.respond(data=principal_teacher_dump)
 

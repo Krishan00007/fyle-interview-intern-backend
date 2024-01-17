@@ -17,9 +17,9 @@ class Teacher(db.Model):
         db_query = db.session.query(cls)
         return db_query.filter(*criterion)
     
-    @classmethod
-    def get_by_id(cls, _id):
-        return cls.filter(cls.id == _id).first()
+    # @classmethod
+    # def get_by_id(cls, _id):
+    #     return cls.filter(cls.id == _id).first()
     
     @classmethod
     def get_teachers_by_principal(cls, principal_id):

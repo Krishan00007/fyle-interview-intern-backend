@@ -36,7 +36,7 @@ class TeacherSchema(SQLAlchemyAutoSchema):
 
     @post_load
     def initiate_class(self, data_dict, many, partial):
-        return Assignment(**data_dict)
+        return Teacher(**data_dict)
 
 class AssignmentSubmitSchema(Schema):
     class Meta:
