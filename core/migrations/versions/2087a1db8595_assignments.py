@@ -45,7 +45,7 @@ def upgrade():
     sa.Column('teacher_id', sa.Integer(), nullable=True),
     sa.Column('content', sa.Text(), nullable=True),
     sa.Column('grade', sa.Enum('A', 'B', 'C', 'D', name='gradeenum'), nullable=True),
-    sa.Column('state', sa.Enum('DRAFT', 'SUBMITTED', name='assignmentstateenum'), nullable=True),
+    sa.Column('state', sa.Enum('DRAFT', 'SUBMITTED', 'GRADED', name='assignmentstateenum'), nullable=True),
     sa.Column('created_at', sa.TIMESTAMP(timezone=True), nullable=False),
     sa.Column('updated_at', sa.TIMESTAMP(timezone=True), nullable=False),
     sa.ForeignKeyConstraint(['student_id'], ['students.id'], ),
